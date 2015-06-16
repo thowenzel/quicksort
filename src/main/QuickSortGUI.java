@@ -22,7 +22,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
-	static private final String newline = "\n";
+	static private final String newline = "\n"; //$NON-NLS-1$
 	JButton _jbtnSort, _jbtnClearIn, _jbtnClearOut;
 	JTextArea _jtaIn;
 	JTextArea _jtaOut;
@@ -35,7 +35,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		
 		
 		// Input area;
-		TitledBorder borderInArea = BorderFactory.createTitledBorder("Eingabe");
+		TitledBorder borderInArea = BorderFactory.createTitledBorder(Messages.getString("ui.titleInputArea")); //$NON-NLS-1$
 		_jtaIn = new JTextArea(5, 100);
 		_jtaIn.setEditable(true);
 		_jtaIn.setLineWrap(true);
@@ -43,7 +43,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		JScrollPane jspIn = new JScrollPane(_jtaIn);
 		JPanel jpInArea = new JPanel();
 		
-		_jbtnClearIn = new JButton("Feld löschen");
+		_jbtnClearIn = new JButton(Messages.getString("ui.nameButtonDeleteField")); //$NON-NLS-1$
 		_jbtnClearIn.addActionListener(this);
 	
 		jpInArea.setBorder(borderInArea);
@@ -51,7 +51,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		jpInArea.add(_jbtnClearIn, BorderLayout.CENTER);
 
 		// Output area
-		TitledBorder borderOutArea = BorderFactory.createTitledBorder("Ausgabe");
+		TitledBorder borderOutArea = BorderFactory.createTitledBorder(Messages.getString("ui.titleOutputArea")); //$NON-NLS-1$
 		_jtaOut = new JTextArea(5, 100);
 		_jtaOut.setEditable(true);
 		_jtaOut.setLineWrap(true);
@@ -59,7 +59,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		JScrollPane jspOut = new JScrollPane(_jtaOut);
 		JPanel jpOutArea = new JPanel();
 		
-		_jbtnClearOut = new JButton("Feld löschen");
+		_jbtnClearOut = new JButton(Messages.getString("ui.nameButtonDeleteField")); //$NON-NLS-1$
 		_jbtnClearOut.addActionListener(this);
 	
 		jpOutArea.setBorder(borderOutArea);
@@ -71,7 +71,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		// fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		
-		_jbtnSort = new JButton("Sortieren");
+		_jbtnSort = new JButton(Messages.getString("ui.nameButtonSort")); //$NON-NLS-1$
 		_jbtnSort.addActionListener(this);
 
 		JPanel buttonPanel = new JPanel(); // use FlowLayout
@@ -89,7 +89,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		if (ae.getSource() == _jbtnSort) {
 
 			String line = _jtaIn.getText();
-			String[] parts = line.split(",");
+			String[] parts = line.split(Messages.getString("ui.comma")); //$NON-NLS-1$
 
 			List<String> list = new ArrayList<String>();
 			for (int i = 0; i < parts.length; i++) {
@@ -100,17 +100,17 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 			for (int i = 0; i < list.size(); i++) {
 				_jtaOut.append(list.get(i));
 				if (i < list.size() - 1)
-					_jtaOut.append(",");
+					_jtaOut.append(Messages.getString("ui.comma")); //$NON-NLS-1$
 			}
 		} else if (ae.getSource() == _jbtnClearIn) {
-			_jtaIn.setText("");	
+			_jtaIn.setText("");	 //$NON-NLS-1$
 		} else if (ae.getSource() == _jbtnClearOut) {
-			_jtaOut.setText("");	
+			_jtaOut.setText("");	 //$NON-NLS-1$
 		}
 	}
 
 	private static void createAndShowGUI() {
-		JFrame frame = new JFrame("QuickSorter");
+		JFrame frame = new JFrame(Messages.getString("ui.programTitle")); //$NON-NLS-1$
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new QuickSortGUI());
 		frame.pack();
@@ -121,7 +121,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				// Turn off metal's use of bold fonts
-				UIManager.put("swing.boldMetal", Boolean.FALSE);
+				UIManager.put("swing.boldMetal", Boolean.FALSE); //$NON-NLS-1$
 				createAndShowGUI();
 			}
 		});
