@@ -31,6 +31,9 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 	public QuickSortGUI() {
 		super(new BorderLayout());
 
+		// Choose input
+		
+		
 		// Input area;
 		TitledBorder borderInArea = BorderFactory.createTitledBorder("Eingabe");
 		_jtaIn = new JTextArea(5, 100);
@@ -67,7 +70,7 @@ public class QuickSortGUI extends JPanel implements ActionListener {
 		fc = new JFileChooser();
 		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		// fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-
+		
 		_jbtnSort = new JButton("Sortieren");
 		_jbtnSort.addActionListener(this);
 
